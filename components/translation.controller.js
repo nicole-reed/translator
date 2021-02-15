@@ -6,7 +6,7 @@ class TranslationController {
     try {
       const { text, locale } = request.body;
 
-      if (!text || !locale) {
+      if (text == null || locale == null) {
         throw new Error('Required field(s) missing')
       }
 
@@ -14,7 +14,7 @@ class TranslationController {
         throw new Error('text must be a string')
       }
 
-      if (text === '') {
+      if (!text) {
         throw new Error('No text to translate')
       }
 
